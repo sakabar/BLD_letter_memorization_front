@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/index', ['as' => 'front.index', 'uses' => 'FrontController@index']);
+Route::get('/', ['as' => 'front.index', 'uses' => 'FrontController@index']);
