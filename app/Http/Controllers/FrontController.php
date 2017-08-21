@@ -36,11 +36,10 @@ class FrontController extends Controller
   public function index()
   {
     $edge_letters = array("あか", "いき", "うく", "えけ", "さし", "すせ", "そん", "たな", "ちに", "つぬ", "てね");
-    $corner_letters = array("あいう", "かくこ", "たつと", "なぬの", "はふほ", "まむも", "やゆよ");
+    $corner_letters = array("あいう", "かくこ", "さすそ", "たつと", "なぬの", "はふほ", "まむも");
 
-    $s1 = $this->gen_rand($edge_letters);
-    $s2 = $this->gen_rand($corner_letters);
-    $ans = $s1 . "\n" . $s2;
-    return $ans;
+    $edge_str = $this->gen_rand($edge_letters);
+    $corner_str = $this->gen_rand($corner_letters);
+    return view('index', ['edge_str' => $edge_str, 'corner_str' => $corner_str]);
   }
 }
