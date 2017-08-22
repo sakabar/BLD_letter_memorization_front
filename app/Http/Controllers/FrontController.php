@@ -36,7 +36,7 @@ class FrontController extends Controller
     $rand_str = $arr[$ind];
     $str_len = mb_strlen($rand_str, 'utf8');
     $char_ind = rand(0, $str_len - 1);
-    $ans .= mb_substr($s, $char_ind, 1, 'utf8');
+    $ans .= mb_substr($rand_str, $char_ind, 1, 'utf8');
 
     return $ans;
   }
