@@ -30,6 +30,14 @@ class FrontController extends Controller
       $char_ind = rand(0, $str_len - 1);
       $ans .= mb_substr($s, $char_ind, 1, 'utf8');
     }
+
+    //最後に、分析のループの終了を表す1文字を追加
+    $ind = rand(0, $len - 1);
+    $rand_str = $arr[$ind];
+    $str_len = mb_strlen($rand_str, 'utf8');
+    $char_ind = rand(0, $str_len - 1);
+    $ans .= mb_substr($s, $char_ind, 1, 'utf8');
+
     return $ans;
   }
 
