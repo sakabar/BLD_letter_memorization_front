@@ -30,17 +30,24 @@ class FrontController extends Controller
       $char_ind = rand(0, $str_len - 1);
       $ans .= mb_substr($s, $char_ind, 1, 'utf8');
     }
+
+    //最後に、分析のループの終了を表す1文字を追加
+    $ind = rand(0, $len - 1);
+    $rand_str = $arr[$ind];
+    $str_len = mb_strlen($rand_str, 'utf8');
+    $char_ind = rand(0, $str_len - 1);
+    $ans .= mb_substr($rand_str, $char_ind, 1, 'utf8');
+
     return $ans;
   }
 
   public function index()
   {
     $edge_letters = array("あか", "いき", "うく", "えけ", "さし", "すせ", "そん", "たな", "ちに", "つぬ", "てね");
-    $corner_letters = array("あいう", "かくこ", "たつと", "なぬの", "はふほ", "まむも", "やゆよ");
+    $corner_letters = array("あいう", "かくこ", "さすそ", "たつと", "なぬの", "はふほ", "まむも");
 
-    $s1 = $this->gen_rand($edge_letters);
-    $s2 = $this->gen_rand($corner_letters);
-    $ans = $s1 . "\n" . $s2;
-    return $ans;
+    $edge_str = $this->gen_rand($edge_letters);
+    $corner_str = $this->gen_rand($corner_letters);
+    return view('index', ['edge_str' => $edge_str, 'corner_str' => $corner_str]);
   }
 }
