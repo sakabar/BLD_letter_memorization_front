@@ -18,3 +18,8 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
+
+AuthName "private"
+AuthUserFile /home/transcribing/www/BLD/gen_rand_letters/.htpasswd
+AuthType Basic
+require valid-user
